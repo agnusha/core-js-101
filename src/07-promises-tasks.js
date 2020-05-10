@@ -28,7 +28,7 @@
  *      .catch((error) => console.log(error.message)) // 'Error: Wrong parameter is passed!
  *                                                    //  Ask her again.';
  */
-function willYouMarryMe(/* isPositiveAnswer */) {
+function willYouMarryMe( /* isPositiveAnswer */ ) {
   throw new Error('Not implemented');
 }
 
@@ -48,7 +48,7 @@ function willYouMarryMe(/* isPositiveAnswer */) {
  *    })
  *
  */
-function processAllPromises(/* array */) {
+function processAllPromises( /* array */ ) {
   throw new Error('Not implemented');
 }
 
@@ -71,7 +71,7 @@ function processAllPromises(/* array */) {
  *    })
  *
  */
-function getFastestPromise(/* array */) {
+function getFastestPromise( /* array */ ) {
   throw new Error('Not implemented');
 }
 
@@ -92,7 +92,7 @@ function getFastestPromise(/* array */) {
  *    });
  *
  */
-function chainPromises(/* array, action */) {
+function chainPromises( /* array, action */ ) {
   throw new Error('Not implemented');
 }
 
