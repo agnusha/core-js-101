@@ -17,6 +17,7 @@ module.exports = {
   },
   rules: {
     'space-in-parens': 'off',
-    'no-nested-ternary': 'off'
+    'no-nested-ternary': 'off',
+    'no-plusplus': 'off'
   },
 };
