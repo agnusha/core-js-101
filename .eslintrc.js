@@ -16,6 +16,7 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
-    'space-in-parens': 'off'
+    'space-in-parens': 'off',
+    'no-nested-ternary': 'off'
   },
 };
