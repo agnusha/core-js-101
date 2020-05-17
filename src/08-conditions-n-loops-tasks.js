@@ -279,6 +279,7 @@ function reverseInteger(num) {
 function isCreditCardNumber(ccn) {
   const stingCcn = ccn.toString();
   let sum = 0;
+  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < stingCcn.length; i++) {
     let num = Number(stingCcn[i]);
     if ((stingCcn.length - i) % 2 === 0) {
@@ -444,7 +445,7 @@ function getMatrixProduct(m1, m2) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition( /* position */ ) {
+function evaluateTicTacToePosition() {
   throw new Error('Not implemented');
 }
 

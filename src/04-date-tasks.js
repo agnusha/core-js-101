@@ -83,7 +83,8 @@ function timeSpanToString(startDate, endDate) {
   hour = hour < 10 ? `0${hour}` : hour;
   min = min < 10 ? `0${min}` : min;
   sec = sec < 10 ? `0${sec}` : sec;
-  ms = (ms < 10) ? `00${ms}` : (ms < 100) ? `0${ms}` : ms;
+  const temp = (ms < 100) ? `0${ms}` : ms;
+  ms = (ms < 10) ? `00${ms}` : temp;
   return `${hour}:${min}:${sec}.${ms}`;
 }
 

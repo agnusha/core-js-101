@@ -104,6 +104,7 @@ function memoize(func) {
  */
 function retry(func, attempts) {
   return () => {
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i <= attempts; i++) {
       try {
         return func();
@@ -187,6 +188,7 @@ function partialUsingArguments(fn, ...args1) {
 function getIdGeneratorFunction(startFrom) {
   let amount = startFrom - 1;
   return () => {
+    // eslint-disable-next-line no-plusplus
     amount++;
     return amount;
   };

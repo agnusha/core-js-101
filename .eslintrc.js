@@ -15,9 +15,5 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
   },
-  rules: {
-    'space-in-parens': 'off',
-    'no-nested-ternary': 'off',
-    'no-plusplus': 'off'
-  },
+  rules: {},
 };
