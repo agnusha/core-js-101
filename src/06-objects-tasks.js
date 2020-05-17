@@ -118,36 +118,71 @@ function fromJSON(proto, json) {
  */
 
 const cssSelectorBuilder = {
-  element() {
-    throw new Error('Not implemented');
+  selector: '',
+
+  checkOrder(order) {
+    if (this.curOrder > order) throw new Error('Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element');
+    if (this.curOrder === order && (order === 1 || order === 2 || order === 6)) throw new Error('Element, id and pseudo-element should not occur more then one time inside the selector');
   },
 
-  id() {
-    throw new Error('Not implemented');
+  element(value) {
+    this.checkOrder(1);
+    const rez = Object.create(cssSelectorBuilder);
+    rez.curOrder = 1;
+    rez.selector = this.selector + value;
+    return rez;
   },
 
-  class() {
-    throw new Error('Not implemented');
+  id(value) {
+    this.checkOrder(2);
+    const rez = Object.create(cssSelectorBuilder);
+    rez.curOrder = 2;
+    rez.selector = `${this.selector}#${value}`;
+    return rez;
   },
 
-  attr() {
-    throw new Error('Not implemented');
+  class(value) {
+    this.checkOrder(3);
+    const rez = Object.create(cssSelectorBuilder);
+    rez.curOrder = 3;
+    rez.selector = `${this.selector}.${value}`;
+    return rez;
   },
 
-  pseudoClass() {
-    throw new Error('Not implemented');
+  attr(value) {
+    this.checkOrder(4);
+    const rez = Object.create(cssSelectorBuilder);
+    rez.curOrder = 4;
+    rez.selector = `${this.selector}[${value}]`;
+    return rez;
   },
 
-  pseudoElement() {
-    throw new Error('Not implemented');
+  pseudoClass(value) {
+    this.checkOrder(5);
+    const rez = Object.create(cssSelectorBuilder);
+    rez.curOrder = 5;
+    rez.selector = `${this.selector}:${value}`;
+    return rez;
   },
 
-  combine() {
-    throw new Error('Not implemented');
+  pseudoElement(value) {
+    this.checkOrder(6);
+    const rez = Object.create(cssSelectorBuilder);
+    rez.curOrder = 6;
+    rez.selector = `${this.selector}::${value}`;
+    return rez;
   },
 
+  combine(selector1, combinator, selector2) {
+    const rez = Object.create(cssSelectorBuilder);
+    rez.selector = `${selector1.selector} ${combinator} ${selector2.selector}`;
+    return rez;
+  },
+
+  stringify() {
+    return this.selector;
+  },
 };
-
 
 module.exports = {
   Rectangle,
